@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consignación – Omar García</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8eef0;--surf:#fff;--ink:#12212b;--mute:#5b6c77;--line:#cfdbe0;--acc:#0b6e66;--accink:#fff;--panel:#12212b;--panelink:#f2f7f8;--warn:#b4440a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d171c;--surf:#16252d;--ink:#e6eef1;--mute:#93a6b1;--line:#29404b;--acc:#3cc2b4;--accink:#06201d;--panel:#1f3a44;--panelink:#e6eef1;--warn:#f0905a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d171c;--surf:#16252d;--ink:#e6eef1;--mute:#93a6b1;--line:#29404b;--acc:#3cc2b4;--accink:#06201d;--panel:#1f3a44;--panelink:#e6eef1;--warn:#f0905a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.4}
+main{max-width:560px;margin:0 auto;padding:16px 14px 48px}
+h1{font-size:22px;font-weight:800;margin:4px 0 12px;letter-spacing:-.01em}
+nav{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:16px}
+.tab{flex:1;background:none;border:0;padding:10px 2px;font:inherit;font-size:14px;font-weight:600;color:var(--mute);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--acc)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+label.f{display:block;font-weight:600;font-size:14px;margin-bottom:12px}
+select,input{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surf);color:var(--ink);margin-top:4px}
+small{display:block;color:var(--mute);font-size:12px}
+.row,.card{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.rn{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.rn span{color:var(--mute);font-size:13px}
+.g{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:end}
+.g b{font-size:20px;display:block;padding:6px 0}
+.g input{padding:9px 6px;text-align:center;font-size:18px;font-weight:600}
+.wn{color:var(--warn);font-size:13px;margin-top:6px;min-height:0}
+.tot{background:var(--panel);color:var(--panelink);border-radius:12px;padding:16px;margin:16px 0}
+.tot .big{font-size:36px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.tot .ln{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid #ffffff30;margin-top:6px}
+.tot input{width:140px;text-align:right;margin:0;background:transparent;color:inherit;border-color:#ffffff60}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;font:inherit;font-weight:700;padding:14px;border-radius:10px;border:0;background:var(--acc);color:var(--accink);cursor:pointer;margin-top:8px}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+pre{white-space:pre-wrap;background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:12px;font:14px/1.5 inherit;overflow-x:auto}
+.hd{display:flex;justify-content:space-between;font-weight:700}
+.neg{color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chips span{background:var(--bg);border-radius:6px;padding:3px 8px;font-size:13px}
+details{margin-top:8px}summary{cursor:pointer;color:var(--mute);font-size:14px}
+.h{font-size:13px;color:var(--mute);padding:4px 0;border-top:1px solid var(--line)}
+.two{display:grid;grid-template-columns:2fr 1fr;gap:8px}
+.empty{color:var(--mute)}
+h2{font-size:16px;margin:20px 0 8px}
+.seg{display:flex;gap:6px;margin-bottom:12px}.seg button{flex:1;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--surf);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}.seg button[aria-pressed="true"]{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.kp div{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:12px}.kp b{display:block;font-size:20px}
+.al{border-left:4px solid var(--warn);padding:6px 10px;margin-bottom:6px;background:var(--surf);border-radius:0 8px 8px 0;font-size:14px}
+</style></head>
+<body><main>
+<h1>Consignación · Omar García</h1>
+<nav><button class="tab" data-t="resumen" onclick="setTab('resumen')">Resumen</button><button class="tab" data-t="visita" onclick="setTab('visita')">Visita</button><button class="tab" data-t="clientes" onclick="setTab('clientes')">Clientes</button><button class="tab" data-t="abonos" onclick="setTab('abonos')">Abonos</button><button class="tab" data-t="marcas" onclick="setTab('marcas')">Marcas</button></nav>
+<div id="app"></div>
+</main>
+<script>
+const KEY='omar-consig-v1';
+const seed={products:[{id:'p1',name:'Marca A',price:9000},{id:'p2',name:'Marca B',price:14000},{id:'p3',name:'Marca C',price:11000}],
+clients:[{id:'c1',name:'Kiosco La Esquina',balance:0,stock:{p1:20,p2:10,p3:15}},{id:'c2',name:'Drugstore Norte',balance:18000,stock:{p1:12,p2:8,p3:0}}],visits:[]};
+function load(){try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){}return JSON.parse(JSON.stringify(seed))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+let S=load(),tab='resumen',cur=null,last=null,draft={counted:{},repo:{}};
+const $=s=>document.querySelector(s);
+const m=n=>(n<0?'-':'')+'$ '+Math.abs(Math.round(n)).toLocaleString('es-AR');
+const num=v=>Math.max(0,parseInt(v)||0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cli=()=>S.clients.find(c=>c.id===cur);
+const uid=()=>Math.random().toString(36).slice(2,8);
+function setTab(t){tab=t;last=null;lastAb=null;flash=null;pend=null;rst=false;render()}
+function render(){
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===tab));
+  $('#app').innerHTML=tab==='resumen'?resumen():tab==='visita'?visita():tab==='clientes'?clientes():tab==='abonos'?abonos():marcas();
+  if(tab==='visita'&&!last&&cli())bindVisita();
+}
+function visita(){
+  if(!S.clients.length||!S.products.length)return '<p class="empty">Cargá al menos un cliente y una marca para registrar visitas.</p>';
+  if(last)return `<h2>Visita guardada</h2><pre>${esc(last)}</pre>
+  <button class="btn" onclick="copiar()">Copiar resumen</button>
+  <a class="btn alt" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(last)}">Enviar por WhatsApp</a>
+  <button class="btn alt" onclick="last=null;render()">Nueva visita</button>`;
+  if(!cli())cur=S.clients[0].id;
+  const c=cli();
+  return `<label class="f">Cliente<select id="sel">${S.clients.map(x=>`<option value="${x.id}" ${x.id===cur?'selected':''}>${esc(x.name)}</option>`).join('')}</select></label>
+  ${S.products.map(p=>{const e=c.stock[p.id]||0;return `<div class="row" data-p="${p.id}">
+   <div class="rn"><b>${esc(p.name)}</b><span>${m(p.price)} c/u</span></div>
+   <div class="g"><div><small>Debería haber</small><b>${e}</b></div>
+   <label><small>Contado</small><input class="cn" type="number" inputmode="numeric" min="0" placeholder="${e}"></label>
+   <div><small>Vendido</small><b class="sv">–</b></div>
+   <label><small>Reponer</small><input class="rp" type="number" inputmode="numeric" min="0" placeholder="0"></label></div>
+   <div class="wn"></div></div>`}).join('')}
+  <div class="tot"><small style="color:inherit;opacity:.7">A cobrar por lo vendido</small><div class="big" id="tv">$ 0</div>
+   <div class="ln"><span>Saldo anterior</span><b id="sa">${m(c.balance)}</b></div>
+   <div class="ln"><span>Pagó hoy</span><input id="pg" type="number" inputmode="numeric" min="0" placeholder="0"></div>
+   <div class="ln"><span>Saldo pendiente</span><b id="sn">${m(c.balance)}</b></div></div>
+  <button class="btn" id="gd" disabled onclick="guardar()">Guardar visita</button>`;
+}
+function bindVisita(){
+  $('#sel').onchange=e=>{cur=e.target.value;draft={counted:{},repo:{}};render()};
+  document.querySelectorAll('.cn,.rp,#pg').forEach(i=>i.oninput=recalc);
+  recalc();
+}
+function recalc(){
+  const c=cli();let tot=0,ok=true;
+  document.querySelectorAll('.row').forEach(r=>{
+    const p=S.products.find(x=>x.id===r.dataset.p),e=c.stock[p.id]||0;
+    const cn=r.querySelector('.cn').value,sv=r.querySelector('.sv'),wn=r.querySelector('.wn');
+    if(cn===''&&e>0){sv.textContent='–';wn.textContent='Falta contar';ok=false;return}
+    const n=cn===''?0:num(cn);
+    if(n>e){sv.textContent='?';wn.textContent='Hay más de lo esperado: revisá el conteo';ok=false;return}
+    sv.textContent=e-n;wn.textContent='';tot+=(e-n)*p.price;
+  });
+  const pg=num($('#pg').value);
+  $('#tv').textContent=m(tot);$('#sn').textContent=m(c.balance+tot-pg);
+  $('#gd').disabled=!ok;
+}
+function guardar(){
+  const c=cli();let tot=0,lines=[],stk=[],det={};
+  document.querySelectorAll('.row').forEach(r=>{
+    const p=S.products.find(x=>x.id===r.dataset.p),e=c.stock[p.id]||0;
+    const n=num(r.querySelector('.cn').value),rp=num(r.querySelector('.rp').value),sold=e-n;
+    tot+=sold*p.price;lines.push(`${p.name}: ${sold} vendidas × ${m(p.price)} = ${m(sold*p.price)}`);
+    det[p.id]={sold,rp};c.stock[p.id]=n+rp;stk.push(`${p.name} ${n+rp}${rp?` (repuse ${rp})`:''}`);
+  });
+  const pg=num($('#pg').value),prev=c.balance;c.balance=prev+tot-pg;
+  const date=new Date().toLocaleDateString('es-AR');
+  const text=`Visita ${date} – ${c.name}\n${lines.join('\n')}\nTotal vendido: ${m(tot)}\nSaldo anterior: ${m(prev)}\nPagó hoy: ${m(pg)}\nSaldo pendiente: ${m(c.balance)}\nStock actual: ${stk.join(', ')}`;
+  S.visits.unshift({cid:c.id,date,ts:Date.now(),tot,pg,after:c.balance,det});save();
+  draft={counted:{},repo:{}};last=text;render();
+}
+function copiar(){try{navigator.clipboard.writeText(last)}catch(e){}}
+function clientes(){
+  return S.clients.map(c=>{const vs=S.visits.filter(v=>v.cid===c.id);
+    return `<div class="card"><div class="hd"><span>${esc(c.name)}</span><span class="${c.balance>0?'neg':''}">${m(c.balance)}</span></div>
+    <div class="chips">${S.products.map(p=>`<span>${esc(p.name)}: ${c.stock[p.id]||0}</span>`).join('')}</div>
+    <details><summary>Historial (${vs.length})</summary>${vs.length?vs.map(v=>`<div class="h">${v.date} · ${v.aj?`ajuste manual: ${esc(v.nota||'')}`:v.ab?`abono ${m(v.pg)} (${esc(v.via||'')})`:`vendió ${m(v.tot)} · pagó ${m(v.pg)}`} · saldo ${m(v.after)}</div>`).join(''):'<div class="h">Todavía no hay visitas.</div>'}</details>
+    <details><summary>Corregir stock o saldo</summary>
+     <div class="g" style="grid-template-columns:repeat(auto-fit,minmax(80px,1fr));margin-top:8px">${S.products.map(p=>`<label><small>${esc(p.name)}</small><input class="es" data-c="${c.id}" data-p="${p.id}" type="number" inputmode="numeric" min="0" value="${c.stock[p.id]||0}"></label>`).join('')}</div>
+     <label class="f" style="margin-top:8px">Saldo pendiente<input id="sd-${c.id}" type="number" inputmode="numeric" value="${c.balance}"></label>
+     <button class="btn alt" onclick="ajustar('${c.id}')">Guardar corrección</button></details></div>`}).join('')+
+  `<h2>Agregar cliente</h2><div class="card"><label class="f">Nombre<input id="nn"></label>
+   <div class="g" style="grid-template-columns:repeat(${Math.max(1,S.products.length)},1fr)">${S.products.map(p=>`<label><small>${esc(p.name)}</small><input class="ns" data-p="${p.id}" type="number" inputmode="numeric" min="0" placeholder="0"></label>`).join('')}</div>
+   <small style="margin-top:8px">Unidades que dejás hoy en consignación</small>
+   <button class="btn" onclick="addCli()">Agregar cliente</button></div>`;
+}
+function addCli(){
+  const n=$('#nn').value.trim();if(!n)return;
+  const stock={};document.querySelectorAll('.ns').forEach(i=>stock[i.dataset.p]=num(i.value));
+  S.clients.push({id:uid(),name:n,balance:0,stock});save();render();
+}
+let per='mes',pend=null,rst=false,flash=null;
+function resumen(){
+  const n=new Date(),a=new Date(n.getFullYear(),n.getMonth(),1).getTime(),b=new Date(n.getFullYear(),n.getMonth()-1,1).getTime();
+  const d0=per==='mes'?a:b,d1=per==='mes'?Infinity:a;
+  const vs=S.visits.filter(v=>v.ts>=d0&&v.ts<d1);
+  const vendido=vs.reduce((s,v)=>s+(v.tot||0),0),cobrado=vs.reduce((s,v)=>s+(v.pg||0),0);
+  const porCobrar=S.clients.reduce((s,c)=>s+c.balance,0),lim=S.limite||50000;
+  let uni=0,val=0;
+  const info=S.clients.map(c=>{
+    const u=S.products.reduce((s,p)=>s+(c.stock[p.id]||0),0),va=S.products.reduce((s,p)=>s+(c.stock[p.id]||0)*p.price,0);
+    uni+=u;val+=va;
+    const lv=S.visits.find(v=>v.cid===c.id&&!v.ab&&!v.aj),dias=lv&&lv.ts?Math.floor((Date.now()-lv.ts)/864e5):null;
+    return {c,u,va,lv,dias};
+  }).sort((x,y)=>y.c.balance-x.c.balance);
+  const mar=S.products.map(p=>({p,fuera:S.clients.reduce((s,c)=>s+(c.stock[p.id]||0),0),vend:vs.reduce((s,v)=>s+((v.det&&v.det[p.id]&&v.det[p.id].sold)||0),0)}));
+  const al=[];
+  info.forEach(i=>{const nm=esc(i.c.name);
+    if(i.c.balance>lim)al.push(`${nm}: debe ${m(i.c.balance)}`);
+    if(!i.lv)al.push(`${nm}: todavía sin visitas`);
+    else if(i.dias!==null&&i.dias>30)al.push(`${nm}: sin visita hace ${i.dias} días`);
+    if(i.u===0)al.push(`${nm}: sin stock, hay que reponer`);
+  });
+  const txt=`Resumen de consignación – ${per==='mes'?'este mes':'mes anterior'}\nTotal a cobrar: ${m(porCobrar)}\nMercadería en consignación: ${uni} u. (${m(val)})\nVendido: ${m(vendido)}\nCobrado: ${m(cobrado)}\n\nPor cliente:\n`+info.map(i=>`${i.c.name}: ${i.u} u., debe ${m(i.c.balance)}`).join('\n');
+  return `<div class="tot"><small style="color:inherit;opacity:.7">Total a cobrar</small><div class="big">${m(porCobrar)}</div>
+   <div class="ln"><span>Mercadería en consignación</span><b>${uni} u. · ${m(val)}</b></div></div>
+  <div class="seg"><button aria-pressed="${per==='mes'}" onclick="per='mes';render()">Este mes</button><button aria-pressed="${per==='ant'}" onclick="per='ant';render()">Mes anterior</button></div>
+  <div class="kp"><div><small>Vendido</small><b>${m(vendido)}</b></div><div><small>Cobrado</small><b>${m(cobrado)}</b></div></div>
+  ${al.length?`<h2>Para revisar</h2>${al.map(x=>`<div class="al">${x}</div>`).join('')}`:''}
+  <h2>Por cliente</h2>${info.map(i=>`<div class="card"><div class="hd"><span>${esc(i.c.name)}</span><span class="${i.c.balance>0?'neg':''}">${m(i.c.balance)}</span></div><small>${i.u} u. en consignación (${m(i.va)}) · ${i.lv?(i.dias!==null?`última visita hace ${i.dias} d`:`última visita ${i.lv.date}`):'sin visitas'}</small></div>`).join('')}
+  <h2>Por marca</h2>${mar.map(x=>`<div class="h">${esc(x.p.name)}: ${x.fuera} u. afuera · ${x.vend} vendidas en el período</div>`).join('')}
+  <label class="f" style="margin-top:16px">Avisar si un cliente debe más de<input type="number" inputmode="numeric" value="${lim}" onchange="S.limite=num(this.value);save();render()"></label>
+  <a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(txt)}">Enviar resumen por WhatsApp</a>`;
+}
+let abCur=null,lastAb=null;
+function abonos(){
+  if(!S.clients.length)return '<p class="empty">Cargá un cliente primero.</p>';
+  if(lastAb)return `<h2>Abono registrado</h2><pre>${esc(lastAb)}</pre>
+  <button class="btn" onclick="try{navigator.clipboard.writeText(lastAb)}catch(e){}">Copiar mensaje</button>
+  <a class="btn alt" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(lastAb)}">Enviar por WhatsApp</a>
+  <button class="btn alt" onclick="lastAb=null;render()">Registrar otro abono</button>`;
+  if(!S.clients.find(c=>c.id===abCur))abCur=S.clients[0].id;
+  const c=S.clients.find(x=>x.id===abCur);
+  return `<label class="f">Cliente<select onchange="abCur=this.value;render()">${S.clients.map(x=>`<option value="${x.id}" ${x.id===abCur?'selected':''}>${esc(x.name)} · debe ${m(x.balance)}</option>`).join('')}</select></label>
+  <div class="tot"><small style="color:inherit;opacity:.7">Saldo pendiente</small><div class="big">${m(c.balance)}</div></div>
+  <label class="f">Monto del abono<input id="ab" type="number" inputmode="numeric" min="1" placeholder="0"></label>
+  <label class="f">Medio de pago<select id="via"><option>Transferencia</option><option>Efectivo</option><option>Mercado Pago</option></select></label>
+  <button class="btn" onclick="addAbono()">Registrar abono</button>
+  <small style="margin-top:8px">Usalo cuando el cliente te manda el comprobante por WhatsApp sin que hayas pasado a contar.</small>`;
+}
+function addAbono(){
+  const c=S.clients.find(x=>x.id===abCur),a=num($('#ab').value);
+  if(!a){$('#ab').focus();return}
+  const via=$('#via').value,date=new Date().toLocaleDateString('es-AR');
+  c.balance-=a;S.visits.unshift({cid:c.id,date,ts:Date.now(),tot:0,pg:a,after:c.balance,ab:true,via});save();
+  lastAb=`Recibimos tu abono de ${m(a)} (${via}) el ${date}.\n`+(c.balance<0?`Saldo a favor: ${m(-c.balance)}`:`Saldo pendiente: ${m(c.balance)}`);
+  render();
+}
+function marcas(){
+  return (flash?`<div class="al" style="border-left-color:${flash.e?'var(--warn)':'var(--acc)'}">${esc(flash.x)}</div>`:'')+S.products.map(p=>`<div class="card two"><label class="f" style="margin:0">Marca<input value="${esc(p.name)}" onchange="upd('${p.id}','name',this.value)"></label>
+   <label class="f" style="margin:0">Precio<input type="number" inputmode="numeric" value="${p.price}" onchange="upd('${p.id}','price',this.value)"></label>${pend===p.id?`<div class="al" style="grid-column:1/-1;margin:0">${S.clients.reduce((s,c)=>s+(c.stock[p.id]||0),0)?`Hay ${S.clients.reduce((s,c)=>s+(c.stock[p.id]||0),0)} unidades en consignación que dejarían de contarse. `:''}¿Eliminar ${esc(p.name)}?</div><button class="btn" style="margin:0;padding:8px;background:var(--warn);color:#fff" onclick="confirmDel('${p.id}')">Sí, eliminar</button><button class="btn alt" style="margin:0;padding:8px" onclick="pend=null;render()">Cancelar</button>`:`<button class="btn alt" style="grid-column:1/-1;margin:0;padding:8px" onclick="delProd('${p.id}')">Eliminar marca</button>`}</div>`).join('')+
+  `<small>Un cambio de precio aplica a las próximas visitas.</small>
+  <h2>Agregar marca</h2><div class="card two"><label class="f" style="margin:0">Marca<input id="nm"></label><label class="f" style="margin:0">Precio<input id="np" type="number" inputmode="numeric"></label></div>
+  <button class="btn" onclick="addProd()">Agregar marca</button>
+  <button class="btn alt" onclick="resetAll()">${rst?'Tocá de nuevo para confirmar: se borran tus datos':'Volver a los datos de ejemplo'}</button>`;
+}
+function delProd(id){pend=id;rst=false;render()}
+function confirmDel(id){
+  const p=S.products.find(x=>x.id===id);
+  S.products=S.products.filter(x=>x.id!==id);S.clients.forEach(c=>delete c.stock[id]);
+  pend=null;flash={x:`Marca eliminada: ${p.name}`};save();render();window.scrollTo(0,0);
+}
+function resetAll(){
+  if(!rst){rst=true;pend=null;render();return}
+  S=JSON.parse(JSON.stringify(seed));save();cur=null;rst=false;flash=null;render();
+}
+function ajustar(id){
+  const c=S.clients.find(x=>x.id===id),ch=[];
+  [...document.querySelectorAll('.es')].filter(i=>i.dataset.c===id).forEach(i=>{
+    const p=S.products.find(x=>x.id===i.dataset.p),n=num(i.value),o=c.stock[p.id]||0;
+    if(n!==o){ch.push(`${p.name} ${o}→${n}`);c.stock[p.id]=n}
+  });
+  const sd=parseInt($('#sd-'+id).value)||0;
+  if(sd!==c.balance){ch.push(`saldo ${m(c.balance)}→${m(sd)}`);c.balance=sd}
+  if(!ch.length)return;
+  S.visits.unshift({cid:id,date:new Date().toLocaleDateString('es-AR'),ts:Date.now(),tot:0,pg:0,after:c.balance,aj:true,nota:ch.join(', ')});
+  save();render();
+}
+function upd(id,k,v){const p=S.products.find(x=>x.id===id);p[k]=k==='price'?num(v):v.trim()||p[k];save()}
+function addProd(){
+  const n=$('#nm').value.trim();
+  if(!n){flash={e:1,x:'Escribí el nombre de la marca'};render();window.scrollTo(0,0);return}
+  S.products.push({id:uid(),name:n,price:num($('#np').value)});
+  flash={x:`Marca agregada: ${n}`};save();render();window.scrollTo(0,0);
+}
+render();
+</script></body></html>
